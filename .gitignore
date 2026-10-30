@@ -1,0 +1,28 @@
+# .gitignore
+# Python cache
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Environment variables & secrets
+.env
+
+# SQLite database files
+*.db
+data/*.db
+
+# ChromaDB local storage (auto-built on startup)
+chroma/
+
+# Pytest cache
+.pytest_cache/
+
+# OS files & logs
+.DS_Store
+Thumbs.db
+*.log
