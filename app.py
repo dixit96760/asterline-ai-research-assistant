@@ -1,4 +1,4 @@
-"""Hugging Face Spaces Entry Point for Asterline AI Research Assistant."""
+"""Hugging Face Spaces and Cloud Entry Point for Asterline AI Research Assistant."""
 
 import os
 from pathlib import Path
@@ -16,4 +16,5 @@ except Exception as e:
 demo = build_demo()
 
 if __name__ == "__main__":
-    demo.launch()
+    share_flag = os.getenv("GRADIO_SHARE", "true").lower() in ("true", "1")
+    demo.launch(server_name="0.0.0.0", server_port=7860, share=share_flag)

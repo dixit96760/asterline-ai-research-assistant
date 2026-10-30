@@ -19,6 +19,9 @@ data/*.db
 # ChromaDB local storage (auto-built on startup)
 chroma/
 
+# Gradio tunnel cache
+.gradio/
+
 # Pytest cache
 .pytest_cache/
 

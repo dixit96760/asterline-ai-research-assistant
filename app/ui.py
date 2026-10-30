@@ -235,10 +235,15 @@ def build_demo() -> gr.Blocks:
     return demo
 
 
-def launch_ui() -> None:
+def launch_ui(share: Optional[bool] = None) -> None:
     """Create and launch the Gradio app."""
+    import os
+    if share is None:
+        share = os.getenv("GRADIO_SHARE", "true").lower() in ("true", "1")
     demo = build_demo()
-    demo.launch(server_name="127.0.0.1", server_port=7860)
+    demo.launch(server_name="0.0.0.0", server_port=7860, share=share)
+    print(f"ASTERLINE_LOCAL_URL: {demo.local_url}", flush=True)
+    print(f"ASTERLINE_SHARE_URL: {demo.share_url}", flush=True)
 
 
 if __name__ == "__main__":
